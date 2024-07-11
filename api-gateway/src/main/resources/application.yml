@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: finance
+          uri: lb://finance
+          predicates:
+            - Path=/api/finance/**
+        - id: habits
+          uri: lb://habits
+          predicates:
+            - Path=/api/habits/**
+        - id: notes
+          uri: lb://notes
+          predicates:
+            - Path=/api/notes/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/user-service/**
